@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(bx*@!f9v!yt1^$nvv+pv2%84af49m4pq-=!t45cnw7bs=eoyo'
+SECRET_KEY = 'django-insecure-&oh@q5wj)$9w*s1$r!bat4=86viz34vnd8tu&gi!678)4p=eaw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["C:/Users/Pablo/Desktop/PF-Tienda/Tienda/AppTienda/template/"],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

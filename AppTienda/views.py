@@ -1,22 +1,27 @@
-from django.http import HttpResponse
+from django import http
 from django.shortcuts import render
-# Create your views here.
+from AppTienda.models import Tienda
+from django.http import HttpResponse
 
-#Creamos las Vistas
+
+def tienda(self):
+    
+    tienda= Tienda(nombre= "Mi Tienda")
+    tienda.save()
+
 
 #--->Inicio
-
 def inicio(request):
-    return render (request, "AppTienda/inicio.html")
+    return render(request, "AppTienda/inicio.html")
 
 #--->Personal
 def personal(request):
-    return render (request, "AppTienda/Personal.html")
+    return render(request, "AppTienda/personal.html")
 
 #--->Productos
 def productos(request):
-    return render (request, "AppTienda/Productos.html")
+    return render(request, "AppTienda/productos.html")
 
 #--->Clientes
 def clientes(request):
-    return render (request, "AppTienda/clientes.html")
+    return render(request, "AppTienda/clientes.html")

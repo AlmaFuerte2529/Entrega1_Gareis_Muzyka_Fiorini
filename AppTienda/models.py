@@ -1,6 +1,8 @@
 from django.db import models
-from decimal import Decimal
-# Create your models here.
+
+class Tienda(models.Model):
+    nombre = models.CharField(max_length=50)
+
 
 #--->Clase Cliente
 class Clientes(models.Model):
