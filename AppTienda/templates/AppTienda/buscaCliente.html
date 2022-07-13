@@ -29,11 +29,11 @@
 
     {% if clientes %}
 
-        <h1>RESULTADOS DE LA BUSQUEDA</h1>
+        <h1 style="color: blue;">RESULTADOS DE LA BUSQUEDA</h1>
 
     
         {% for cliente in clientes %}
-        <table>
+        <table style="margin: auto; width: 320px;">
             
             <tr><td>Nombre: {{ cliente.nombrecompleto }}</td></tr>
             <tr><td>D.N.I.: {{ cliente.dni }}</td></tr>
