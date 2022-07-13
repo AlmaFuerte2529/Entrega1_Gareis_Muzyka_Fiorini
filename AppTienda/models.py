@@ -26,7 +26,7 @@ class Clientes(models.Model):
 
 #--->Clase Productos
 class Producto(models.Model):
-    codigoarticulo=models.IntegerField()
+    codigo=models.IntegerField()
     articulo=models.CharField(max_length=50)
     #decimal -->cambiar
     precio=models.IntegerField()

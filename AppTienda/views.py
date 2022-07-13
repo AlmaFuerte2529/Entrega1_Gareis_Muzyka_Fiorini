@@ -1,8 +1,8 @@
 from django import http
 from django.shortcuts import render, HttpResponse
-from AppTienda.models import Tienda, Clientes
+from AppTienda.models import Tienda, Clientes, Personal, Producto
 from django.http import HttpResponse
-from AppTienda.forms import FormClientes
+from AppTienda.forms import FormClientes, FormPersonal, FormProducto
 
 
 def tienda(self):
@@ -47,6 +47,47 @@ def formClientes(request):
          form= FormClientes()
     
     return render(request, "AppTienda/formClientes.html", {"formulario":form})
+
+def formPersonal(request):
+
+    if (request.method=="POST"):
+        form= FormPersonal(request.POST)
+        if form.is_valid():
+            info= form.cleaned_data
+            nombrecompleto= info["nombrecompleto"]
+            dni= info["dni"]
+            direccion= info["direccion"]
+            cargo= info["cargo"]
+            telefono= info["telefono"]
+            usuario= info["usuario"]
+            clave= info["clave"]
+            personal= Personal(nombrecompleto=nombrecompleto, dni=dni, direccion=direccion, telefono=telefono, cargo=cargo, usuario=usuario, clave=clave)
+            personal.save()
+            return render(request, "AppTienda/inicio.html")
+    else:
+         form= FormPersonal()
+    
+    return render(request, "AppTienda/formPersonal.html", {"formulario":form})
+
+def formProducto(request):
+
+    if (request.method=="POST"):
+        form= FormProducto(request.POST)
+        if form.is_valid():
+            info= form.cleaned_data
+            codigo= info["codigo"]
+            articulo= info["articulo"]
+            precio= info["precio"]
+            fechaingreso= info["fechaingreso"]
+            stock= info["stock"]
+            disponible= info["disponible"]
+            productos= Producto(codigo=codigo, articulo=articulo, precio=precio, fechaingreso=fechaingreso, stock=stock, disponible=disponible)
+            productos.save()
+            return render(request, "AppTienda/inicio.html")
+    else:
+         form= FormProducto()
+    
+    return render(request, "AppTienda/formProducto.html", {"formulario":form})    
 
 def buscaCliente(request):
     try:
