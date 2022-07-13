@@ -11,15 +11,21 @@
 
 {% endblock %} 
 
-{% block formulario %}
-<from action="/AppTienda/formClientes/" method="POST">  {% csrf_token %}
-    <p> Nombre Completo: <input type="text" nome="nombrecompleto"></p>
-    <p> D.N.I: <input type="number" nome="dni"></p>
-    <p> Edad: <input type="number" nome="edad"></p>
-    <p> Direccion: <input type="text" nome="direccion"></p>
-    <p> Codigo Postal: <input type="number" nome="cp"></p>
-    <p> Email: <input type="email" nome="email"></p>
-    <p> Telefono: <input type="tel" nome="telefono"></p>
+{% if formulario.error %}
+    <p style= "color:red">ERROR EN EL FORMULARIO</p>
+{% endif %}
 
-    <input type="submit" class ="btn btn-primary"value="Ingresar">
+
+{% block formulario %}
+
+<form action="{% url 'formClientes' %}" method="POST"> {% csrf_token %}
+    
+    <table>
+        {{ formulario.as_table }}
+    </table>
+
+    <input type="submit" class ="btn btn-primary" value="Ingresar">
+</form>
+
+
 {% endblock %}

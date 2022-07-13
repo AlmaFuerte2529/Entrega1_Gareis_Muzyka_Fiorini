@@ -1,5 +1,4 @@
 from django.contrib import admin
-from AppTienda.views import productos
 from .models import *
 
 

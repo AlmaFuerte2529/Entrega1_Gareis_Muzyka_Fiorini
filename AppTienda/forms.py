@@ -1,3 +1,4 @@
+import email
 from django import forms
 
 class FormClientes(forms.Form):
@@ -7,4 +8,4 @@ class FormClientes(forms.Form):
     direccion = forms.CharField(max_length=50)
     cp = forms.IntegerField()
     email = forms.EmailField()
-    telefono = forms.ImageField()
+    telefono = forms.IntegerField()

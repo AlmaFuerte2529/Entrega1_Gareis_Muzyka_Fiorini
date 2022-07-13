@@ -1,0 +1,53 @@
+{% extends "AppTienda/Padre.html" %}
+{% load static %} 
+
+{% block titulo %} 
+<h1 class="mb-5" style="font-size:90px;">Busqueda clientes</h1>
+{% endblock %} 
+{% block contenido %} 
+<h1>Datos del Cliente</h1>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;"  href="{% url 'clientes' %}">Volver</a>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'buscaCliente' %}">Buscar Datos</a>
+
+{% endblock %} 
+
+
+{% block formulario %}
+
+    
+    {% if error %}
+        <p style="color:red">{{ error }}</p>
+    {% endif %}
+
+    <form class="form-control" action="{% url 'buscaCliente' %}" method="GET">
+
+        <p> Ingrese un nombre : <input type="text" name="nombrecompleto"></p>
+               
+        <input type="submit" class ="btn btn-primary" value="Buscar">
+
+    </form>
+
+    {% if clientes %}
+
+        <h1>RESULTADOS DE LA BUSQUEDA</h1>
+
+    
+        {% for cliente in clientes %}
+        <table>
+            
+            <tr><td>Nombre: {{ cliente.nombrecompleto }}</td></tr>
+            <tr><td>D.N.I.: {{ cliente.dni }}</td></tr>
+            <tr><td>Edad: {{ cliente.edad }}</td></tr>
+            <tr><td>Direccion: {{ cliente.direccion }}</td></tr>
+            <tr><td>Codigo Postal: {{ cliente.cp }}</td></tr>
+            <tr><td>email: {{ cliente.email }}</td></tr>
+            <tr><td>Telefono: {{ cliente.telefono }}</td></tr>
+            
+        </table>
+        <br>
+        {% endfor %}
+    
+
+    {% endif %}
+
+{% endblock %}
