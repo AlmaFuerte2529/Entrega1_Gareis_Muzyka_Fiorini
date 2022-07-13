@@ -18,7 +18,7 @@
 
 {% block formulario %}
 
-<form action="{% url 'formClientes' %}" method="POST"> {% csrf_token %}
+<form style="margin: auto; width: 320px;" action="{% url 'formClientes' %}" method="POST" > {% csrf_token %}
     
     <table>
         {{ formulario.as_table }}
