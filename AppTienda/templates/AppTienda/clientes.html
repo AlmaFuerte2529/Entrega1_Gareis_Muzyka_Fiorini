@@ -2,10 +2,17 @@
 {% load static %} 
 
 {% block titulo %} 
-<h1 class="mb-5">Clientes</h1>
+<h1 class="mb-5" style="font-size:90px;">Clientes</h1>
 {% endblock %} 
 
 
 {% block contenido %} 
-<h1>Clientes</h1>
+<h1></h1>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;"  href="{% url 'formClientes' %}">Cargar Datos</a>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'formClientes' %}">Buscar Datos</a>
+
 {% endblock %} 
+
+{% block formulario %}
+
+{% endblock %}

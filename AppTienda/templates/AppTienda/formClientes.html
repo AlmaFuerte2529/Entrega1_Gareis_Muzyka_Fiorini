@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <from action="/AppTienda/formClientes/" method="POST">  {% csrf_token %}
-        <p> Nombre Completo: <input type="text" nome="nombrecompleto"></p>
-        <p> D.N.I: <input type="number" nome="dni"></p>
-        <p> Edad: <input type="number" nome="edad"></p>
-        <p> Direccion: <input type="text" nome="direccion"></p>
-        <p> Codigo Postal: <input type="number" nome="cp"></p>
-        <p> Email: <input type="email" nome="email"></p>
-        <p> Telefono: <input type="tel" nome="telefono"></p>
+{% extends "AppTienda/Padre.html" %}
+{% load static %} 
 
-        <input type="submit" value="Ingresar">
-</body>
-</html>
+{% block titulo %} 
+<h1 class="mb-5" style="font-size:90px;">Clientes</h1>
+{% endblock %} 
+{% block contenido %} 
+<h1>Datos del Cliente</h1>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;"  href="{% url 'clientes' %}">Volver</a>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'formClientes' %}">Buscar Datos</a>
+
+{% endblock %} 
+
+{% block formulario %}
+<from action="/AppTienda/formClientes/" method="POST">  {% csrf_token %}
+    <p> Nombre Completo: <input type="text" nome="nombrecompleto"></p>
+    <p> D.N.I: <input type="number" nome="dni"></p>
+    <p> Edad: <input type="number" nome="edad"></p>
+    <p> Direccion: <input type="text" nome="direccion"></p>
+    <p> Codigo Postal: <input type="number" nome="cp"></p>
+    <p> Email: <input type="email" nome="email"></p>
+    <p> Telefono: <input type="tel" nome="telefono"></p>
+
+    <input type="submit" class ="btn btn-primary"value="Ingresar">
+{% endblock %}
