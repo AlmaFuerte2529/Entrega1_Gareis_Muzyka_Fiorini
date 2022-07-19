@@ -12,4 +12,8 @@ urlpatterns = [
     path('formPersonal/', formPersonal, name='formPersonal'),
     path('formProducto/', formProducto, name='formProducto'),
     path('buscaCliente/', buscaCliente, name= 'buscaCliente'),
+    path('personal/list', PersonalList.as_view(), name='personal_listar'),
+
+
+
 ]

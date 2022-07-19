@@ -7,5 +7,16 @@
 
 
 {% block contenido %} 
-<h1>Datos del Personal</h1>
+<br>
+<br>
+<h1><center>Datos del Personal</center></h1>
+
+<h1> <center>  
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href= 'list'>Listado</a>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'personal' %}">Agregar</a>
+</center> </h1>
+
+{% endblock %} 
+
+{% block formulario %}
 {% endblock %} 

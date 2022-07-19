@@ -1,0 +1,21 @@
+{% extends "AppTienda/padre.html" %}
+
+{% load static %}
+
+{% block titulo %} 
+<h1 class="mb-5" style="font-size:90px;">Listado del personal</h1>
+{% endblock %} 
+
+{% block contenido %}
+
+{% for personal in object_list %}
+<h2>
+    <li style="color:black">{{ personal }}</li>
+</h2>
+    
+
+{% endfor %}
+
+
+
+{% endblock %}

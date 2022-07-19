@@ -5,6 +5,14 @@
 <h1 class="mb-5" style="font-size:90px;">Productos</h1>
 {% endblock %} 
 
+
 {% block contenido %} 
-<h1>Productos</h1>
+<h1></h1>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;"  href="{% url 'formClientes' %}#cargar">Cargar Datos</a>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'buscaCliente' %}#buscar">Buscar Datos</a>
+
 {% endblock %} 
+
+{% block formulario %}
+
+{% endblock %}

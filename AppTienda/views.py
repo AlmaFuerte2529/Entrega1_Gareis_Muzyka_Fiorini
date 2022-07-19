@@ -1,9 +1,9 @@
 from django import http
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from AppTienda.models import Tienda, Clientes, Personal, Producto
 from django.http import HttpResponse
 from AppTienda.forms import FormClientes, FormPersonal, FormProducto
-
+from django.views.generic import ListView
 
 def tienda(self):
     
@@ -15,6 +15,8 @@ def tienda(self):
 def inicio(request):
     return render(request, "AppTienda/inicio.html")
 
+def in_inicio(request):
+    return redirect('inicio')
 #--->Personal
 def personal(request):
     return render(request, "AppTienda/personal.html")
@@ -102,3 +104,16 @@ def buscaCliente(request):
             return render(request, "AppTienda/buscaCliente.html", {"error":"No se ingreso ningun nombre"})
     except:
         return render(request, "AppTienda/buscaCliente.html")
+
+
+class PersonalList(ListView):
+    model= Personal
+    template_name = "AppTienda/personal_list.html"
+
+
+
+
+
+
+
+

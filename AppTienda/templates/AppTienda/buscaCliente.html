@@ -4,10 +4,13 @@
 {% block titulo %} 
 <h1 class="mb-5" style="font-size:90px;">Busqueda clientes</h1>
 {% endblock %} 
-{% block contenido %} 
+{% block contenido %}
+<br id= "buscar">
+<br>
+<br>
 <h1>Datos del Cliente</h1>
 <a class="btn btn-primary" style="margin-left:auto; margin-right: auto;"  href="{% url 'clientes' %}">Volver</a>
-<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'buscaCliente' %}">Buscar Datos</a>
+<a class="btn btn-primary" style="margin-left:auto; margin-right: auto;" href="{% url 'formClientes' %}#cargar">Cargar Cliente</a>
 
 {% endblock %} 
 
@@ -19,7 +22,7 @@
         <p style="color:red">{{ error }}</p>
     {% endif %}
 
-    <form class="form-control" action="{% url 'buscaCliente' %}" method="GET">
+    <form class="form-control" action="{% url 'buscaCliente' %}#cliente" method="GET">
 
         <p> Ingrese un nombre : <input type="text" name="nombrecompleto"></p>
                
@@ -29,19 +32,19 @@
 
     {% if clientes %}
 
-        <h1 style="color: blue;">RESULTADOS DE LA BUSQUEDA</h1>
+        <h1 style="color: blue;" id="cliente">RESULTADOS DE LA BUSQUEDA</h1>
 
     
         {% for cliente in clientes %}
-        <table style="margin: auto; width: 320px;">
-                    
-            <tr><td>Nombre: {{ cliente.nombrecompleto }}</td></tr>
-            <tr><td>D.N.I.: {{ cliente.dni }}</td></tr>
-            <tr><td>Edad: {{ cliente.edad }}</td></tr>
-            <tr><td>Direccion: {{ cliente.direccion }}</td></tr>
-            <tr><td>Codigo Postal: {{ cliente.cp }}</td></tr>
-            <tr><td>email: {{ cliente.email }}</td></tr>
-            <tr><td>Telefono: {{ cliente.telefono }}</td></tr>
+        <table style="margin:auto; width:320px; width:25%" id="tabla">
+            
+            <tr><td>Nombre: </td> <td>{{ cliente.nombrecompleto }}</td></tr>
+            <tr><td>D.N.I.: </td> <td>{{ cliente.dni }}</td></tr>
+            <tr><td>Edad: </td> <td>{{ cliente.edad }}</td></tr>
+            <tr><td>Direccion: </td> <td>{{ cliente.direccion }}</td></tr>
+            <tr><td>Codigo Postal: </td> <td>{{ cliente.cp }}</td></tr>
+            <tr><td>email: </td> <td>{{ cliente.email }}</td></tr>
+            <tr><td>Telefono: </td> <td>{{ cliente.telefono }}</td></tr>
             
         </table>
         <br>

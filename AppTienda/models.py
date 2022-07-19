@@ -48,3 +48,6 @@ class Personal(models.Model):
     direccion=models.CharField(max_length=50)
     telefono=models.IntegerField()
     cargo=models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombrecompleto+" -----> "+str(self.cargo)
